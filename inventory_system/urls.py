@@ -20,6 +20,8 @@ from inventory import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('index/', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('item/<int:id>/', views.item_detail, name='item_detail'),
 ]
+

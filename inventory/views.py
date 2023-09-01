@@ -13,6 +13,7 @@ def item_detail(request, id):
     try:
         item = Item.objects.get(id=id)
     except Item.DoesNotExist:
+        print(f"Item with id={id} does not exist. Raising Http404.")
         raise Http404('This page does not exist')
     return render(request, 'inventory/item_detail.html', {
         'item': item,
