@@ -1,12 +1,14 @@
-<p>Home page</p>
+{% extends "inventory/base.html" %}
 
-
-<ul>
-    {% for item in items %}
+{% block content %}
+    <h3>Items in stock</h3>
+    <ul>
+        {% for item in items %}
         <li>
             <a href="{% url 'item_detail' item.id %}">
-                {{ item.title|capfirst }}
+                {{ item.title|capfirst}}
             </a>
+        {% endfor %}
         </li>
-    {% endfor %}
-</ul>
+    </ul>
+{% endblock content %}

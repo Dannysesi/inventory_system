@@ -1,3 +1,9 @@
-<p>Item detail page</p>
+{% extends 'inventory/base.html' %}
 
-<h3>{{item.title}}</h3>
+{% block content %}
+    <a href="{% url 'index' %}">Back to item list</a>
+    <h3>{{ item.title|capfirst }}</h3>
+    <p>{{ item.price }} currently in stock</p>
+    <h4>Description:</h4>
+    <p> {{ item.description }}</p>
+{% endblock content %}    
