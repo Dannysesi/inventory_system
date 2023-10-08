@@ -7,10 +7,50 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'main.css' %}">
         <title>Inventory Project</title>
+        <style>
+            body {
+                font-family: cursive;
+                margin: 0;
+                padding: 20px;
+                background-color: #ffffff;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                background-color: #a8daa8;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.501);
+            }
+
+            h1 {
+                color: #333;
+            }
+
+            p {
+                margin-bottom: 10px;
+            }
+
+            a {
+                text-decoration: none;
+                color: #007BFF;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
     </head>
     <body>
-        {% block content %}
-        {% endblock content %}
-        <script src="{% static 'main.js' %}"></script>
+        <div class="container">
+            {% block content %}
+            <h1 style="text-align: center;">Welcome to my inventory system</h1>
+            <p style="text-align: center;">
+                <a href="{% url 'index' %}">check list</a>
+            </p>
+            {% endblock content %}
+            <script src="{% static 'main.js' %}"></script>
+        </div>
     </body>
 </html>

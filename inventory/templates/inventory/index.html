@@ -1,14 +1,26 @@
 {% extends "inventory/base.html" %}
 
 {% block content %}
+    <p><a href="{% url 'base' %}">Home</a></p>
     <h3>Items in stock</h3>
     <ul>
-        {% for item in items %}
+        {% for item in items_in_stock %}
         <li>
             <a href="{% url 'item_detail' item.id %}">
-                {{ item.title|capfirst}}
+                {{ item.title|capfirst }}
             </a>
         {% endfor %}
         </li>
     </ul>
+    <h3>Items not in stock</h3>
+    <ul>
+        {% for item in items_not_in_stock %}
+        <li>
+            <a href="{% url 'item_detail' item.id %}">
+                {{ item.title|capfirst }}
+            </a>
+        {% endfor %}
+        </li>
+    </ul>
+    <!-- <p><a href="{% url 'base' %}">Home</a></p> -->
 {% endblock content %}
