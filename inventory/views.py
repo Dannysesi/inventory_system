@@ -1,13 +1,18 @@
 from django.shortcuts import render
 from django.http import Http404
-
 from inventory.models import Item
 
+def base(request):
+    return render(request, 'inventory/base.html')
+
 def index(request):
-    items = Item.objects.exclude(price=0)
-    return render(request, 'inventory/index.html', {
-        'items': items,
-    })
+    items_in_stock = Item.objects.filter(in_stock=True)
+    items_not_in_stock = Item.objects.filter(in_stock=False)
+    context = {
+        'items_in_stock': items_in_stock,
+        'items_not_in_stock': items_not_in_stock,
+    }
+    return render(request, 'inventory/index.html', context)
 
 def item_detail(request, id):
     try:
