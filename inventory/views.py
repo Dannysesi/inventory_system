@@ -12,7 +12,7 @@ def index(request):
         'items_in_stock': items_in_stock,
         'items_not_in_stock': items_not_in_stock,
     }
-    return render(request, 'inventory/index.html', context)
+    return render(request, 'inventory/index.html', context
 
 def item_detail(request, id):
     try:
